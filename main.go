@@ -851,9 +851,12 @@ func ripTrack(track *task.Track, token string, mediaUserToken string) {
 	}
 	Tag_string := strings.Join(stringsToJoin, " ")
 
+
+
 	songName := strings.NewReplacer(
 		"{SongId}", track.ID,
 		"{SongNumer}", fmt.Sprintf("%02d", track.TaskNum),
+		"{ArtistName}", LimitString(track.Resp.Attributes.ArtistName),
 		"{SongName}", LimitString(track.Resp.Attributes.Name),
 		"{DiscNumber}", fmt.Sprintf("%0d", track.Resp.Attributes.DiscNumber),
 		"{TrackNumber}", fmt.Sprintf("%0d", track.Resp.Attributes.TrackNumber),
